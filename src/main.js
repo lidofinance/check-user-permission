@@ -26,7 +26,7 @@ async function run() {
       username,
     });
 
-    core.info(`${username} permission is ${permission}.`);
+    // core.info(`${username} permission is ${permission}.`);
 
     const isAllowed = checkPermission(require, permission);
 
