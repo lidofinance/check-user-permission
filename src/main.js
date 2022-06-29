@@ -1,12 +1,18 @@
 const core = require('@actions/core');
 const { Octokit } = require('@octokit/rest');
 const github = require('@actions/github');
-const { checkPermission } = require('actions-util');
 
-// **********************************************************
 const token = core.getInput('token');
 const octokit = new Octokit({ auth: `token ${token}` });
 const context = github.context;
+
+const permissions = ['read', 'write', 'admin'];
+
+const checkPermission = (require, permission) => {
+  const requireNo = permissions.indexOf(require);
+  const permissionNo = permissions.indexOf(permission);
+  return requireNo <= permissionNo;
+};
 
 async function run() {
   try {
@@ -25,8 +31,6 @@ async function run() {
       repo,
       username,
     });
-
-    // core.info(`${username} permission is ${permission}.`);
 
     const isAllowed = checkPermission(require, permission);
 

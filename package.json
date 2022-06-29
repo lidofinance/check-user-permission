@@ -15,11 +15,9 @@
   "dependencies": {
     "@actions/core": "1.9.0",
     "@actions/github": "4.0.0",
-    "@octokit/rest": "18.12.0",
-    "actions-util": "1.1.4"
+    "@octokit/rest": "18.12.0"
   },
   "devDependencies": {
-    "@umijs/fabric": "2.12.1",
     "@vercel/ncc": "0.27.0",
     "prettier": "2.7.1"
   }
