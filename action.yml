@@ -13,23 +13,9 @@ inputs:
     description: Secret GitHub API token to use for making API requests.
     default: ${{ github.token }}
     required: true
-  username:
-    description: Test username in this repo
   require:
-    description: Test whether the user meets the required permission
-    required: false
-  check-bot:
-    description: Check whether the user is a bot
-  check-contributor:
-    description: Check whether the user is contributor
-
-outputs:
-  user-permission:
-    description: User permission
-  require-result:
-    description: The result of require
-  check-result:
-    description: The result of check
+    description: Which permission level a user should have
+    required: true
 
 runs:
   using: 'node12'
